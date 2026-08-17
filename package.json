@@ -1,0 +1,17 @@
+{
+  "name": "pixapop-klantenportaal-mcp",
+  "version": "1.0.0",
+  "description": "Cursor MCP for Pixapop Klantenportaal admin API",
+  "type": "module",
+  "bin": {
+    "pixapop-klantenportaal-mcp": "./index.js"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  }
+}
