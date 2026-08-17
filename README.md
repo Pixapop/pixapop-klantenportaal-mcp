@@ -1,35 +1,22 @@
-# Pixapop Klantenportaal MCP (Cursor)
+# Pixapop Klantenportaal MCP (legacy local client)
 
-Stdio-MCP voor Cursor. Praat met `/api/admin/v1/*` via jouw Sanctum-token.
+**Productiestandaard:** remote MCP op het portaal zelf.
 
-## Vereisten
-
-- Node.js 18+
-- Token uit het portaal: **Instellingen → Integraties → Cursor MCP**
-
-## Setup (geen lokale map)
-
-In Cursor → Settings → MCP (of `~/.cursor/mcp.json`), plak:
+In Cursor:
 
 ```json
 {
   "mcpServers": {
     "klantenportaal": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "github:Pixapop/pixapop-klantenportaal-mcp"
-      ],
-      "env": {
-        "KLANTENPORTAAL_BASE_URL": "https://portaal.jouwdomein.be",
-        "KLANTENPORTAAL_TOKEN": "1|jouw-token",
-        "KLANTENPORTAAL_ORG_ID": "3"
+      "url": "https://portaal.jouwdomein.be/mcp",
+      "headers": {
+        "Authorization": "Bearer 1|jouw-token",
+        "X-Organization-Id": "3"
       }
     }
   }
 }
 ```
 
-`npx` haalt het pakket automatisch op. Geen ZIP, geen `npm install`, geen pad naar `index.js`.
-
-Bron: https://github.com/Pixapop/pixapop-klantenportaal-mcp
+Token + JSON komen uit **Instellingen → Integraties → Cursor MCP** op jouw portaal.
+Deze Node-repo is alleen nog legacy/offline.
