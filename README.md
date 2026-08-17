@@ -1,36 +1,24 @@
-﻿# Pixapop Klantenportaal MCP (Cursor)
+# Pixapop Klantenportaal MCP (Cursor)
 
-Lokale stdio-MCP voor Cursor. Praat met `/api/admin/v1/*` via jouw Sanctum-token.
+Stdio-MCP voor Cursor. Praat met `/api/admin/v1/*` via jouw Sanctum-token.
 
 ## Vereisten
 
 - Node.js 18+
 - Token uit het portaal: **Instellingen → Integraties → Cursor MCP**
 
-## Installatie (partner)
+## Setup (geen lokale map)
 
-1. Download de ZIP uit het portaal (of ontvang hem van Pixapop).
-2. Pak uit naar bv. `C:\Users\JouwNaam\pixapop-klantenportaal-mcp`
-3. Open die map in een terminal en run:
-
-```bash
-npm install
-```
-
-4. In Cursor → Settings → MCP, plak de JSON uit het portaal.
-5. Vervang in `args` het pad door **jouw echte pad** naar `index.js` (niet `PAD/NAAR/...`).
-6. Zet je token in `KLANTENPORTAAL_TOKEN`.
-7. Herlaad MCP in Cursor.
-
-### Voorbeeld Windows
+In Cursor → Settings → MCP (of `~/.cursor/mcp.json`), plak:
 
 ```json
 {
   "mcpServers": {
     "klantenportaal": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "C:/Users/Frederik/pixapop-klantenportaal-mcp/index.js"
+        "-y",
+        "github:Pixapop/pixapop-klantenportaal-mcp"
       ],
       "env": {
         "KLANTENPORTAAL_BASE_URL": "https://portaal.jouwdomein.be",
@@ -42,4 +30,6 @@ npm install
 }
 ```
 
-Gebruik forward slashes `/` in het pad, ook op Windows.
+`npx` haalt het pakket automatisch op. Geen ZIP, geen `npm install`, geen pad naar `index.js`.
+
+Bron: https://github.com/Pixapop/pixapop-klantenportaal-mcp
